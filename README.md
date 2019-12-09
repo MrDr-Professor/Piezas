@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/MrDr-Professor/Piezas.svg?branch=master)](https://travis-ci.org/MrDr-Professor/Piezas) [![Coverage Status](https://coveralls.io/repos/github/MrDr-Professor/Piezas/badge.svg?branch=master)](https://coveralls.io/github/MrDr-Professor/Piezas?branch=master)
 # Piezas
 
 ## Associated Enumerated Types
