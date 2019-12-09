@@ -57,7 +57,7 @@ Piece Piezas::dropPiece(int column)
         turn = X;
     }
     
-    if(column > BOARD_COLS || column < 0){
+    if(column >= BOARD_COLS || column < 0){
         return Invalid;
     }else if(board[BOARD_ROWS][column] != Blank){
         return Blank;
