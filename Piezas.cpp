@@ -23,10 +23,10 @@
 Piezas::Piezas()
 {
     std::vector<Piece> row;
-    for(int j; j < BOARD_COLS; j++){
+    for(int j = 0; j < BOARD_COLS; j++){
         row.push_back(Blank);
     }
-    for(int i; i < BOARD_ROWS; i++){
+    for(int i = 0; i < BOARD_ROWS; i++){
         board.push_back(row);
     }
     turn = X;
