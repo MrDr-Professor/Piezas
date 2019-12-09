@@ -84,3 +84,54 @@ TEST(PiezasTest, dropOverbounds)
 	Piezas p;
 	ASSERT_EQ(p.dropPiece(4), Invalid);
 }
+
+TEST(PiezasTest, getX)
+{
+	Piezas p;
+  p.dropPiece(0);
+	ASSERT_EQ(p.pieceAt(0, 0), X);
+}
+
+TEST(PiezasTest, getO)
+{
+	Piezas p;
+  p.dropPiece(0);
+  p.dropPiece(3);
+	ASSERT_EQ(p.pieceAt(0, 3), O);
+}
+
+TEST(PiezasTest, getBlank)
+{
+	Piezas p;
+	ASSERT_EQ(p.pieceAt(0, 0), Blank);
+}
+
+TEST(PiezasTest, getInvUnderCol)
+{
+	Piezas p;
+	ASSERT_EQ(p.pieceAt(0, -1), Invalid);
+}
+
+TEST(PiezasTest, getInvOverCol)
+{
+	Piezas p;
+	ASSERT_EQ(p.pieceAt(0, 4), Invalid);
+}
+
+TEST(PiezasTest, getInvUnderRow)
+{
+	Piezas p;
+	ASSERT_EQ(p.pieceAt(-1, 0), Invalid);
+}
+
+TEST(PiezasTest, getInvOverRow)
+{
+	Piezas p;
+	ASSERT_EQ(p.pieceAt(4, 0), Invalid);
+}
+
+TEST(PiezasTest, getInvBoth)
+{
+	Piezas p;
+	ASSERT_EQ(p.pieceAt(4, 4), Invalid);
+}
