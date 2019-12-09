@@ -22,6 +22,14 @@
 **/
 Piezas::Piezas()
 {
+    std::vector<Piece> row;
+    for(int j; j < BOARD_COLS; j++){
+        row.push_back(Blank);
+    }
+    for(int i; i < BOARD_ROWS; i++){
+        board.push_back(row);
+    }
+    turn = X;
 }
 
 /**
@@ -42,7 +50,27 @@ void Piezas::reset()
 **/ 
 Piece Piezas::dropPiece(int column)
 {
-    return Blank;
+    Piece p = turn;
+    if(turn == X){
+        turn = O;
+    }else{
+        turn = X;
+    }
+    
+    if(column > BOARD_COLS || column < 0){
+        return Invalid;
+    }else if(board[BOARD_ROWS][column] != Blank){
+        return Blank;
+    }
+    
+    if(board[0][column] == Blank){
+        board[0][column] = p;
+    }else if(board[1][column] == Blank){
+        board[1][column] = p;
+    }else{
+        board[2][column] = p;
+    }
+    return p;
 }
 
 /**
