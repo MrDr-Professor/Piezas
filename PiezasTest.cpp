@@ -193,7 +193,7 @@ TEST(PiezasTest, notDone)
 	ASSERT_EQ(p.gameState(), Invalid);
 }
 
-TEST(PiezasTest, Tie)
+TEST(PiezasTest, rowTie)
 {
 	Piezas p;
   p.dropPiece(0);
@@ -263,6 +263,24 @@ TEST(PiezasTest, XCol)
   p.dropPiece(2);
   p.dropPiece(3);
 	ASSERT_EQ(p.gameState(), X);
+}
+
+TEST(PiezasTest, colTie)
+{
+	Piezas p;
+  p.dropPiece(0);
+  p.dropPiece(0);
+  p.dropPiece(0);
+  p.dropPiece(1);
+  p.dropPiece(1);
+  p.dropPiece(1);
+  p.dropPiece(2);
+  p.dropPiece(3);
+  p.dropPiece(2);
+  p.dropPiece(3);
+  p.dropPiece(2);
+  p.dropPiece(3);
+	ASSERT_EQ(p.gameState(), Blank);
 }
 
 TEST(PiezasTest, OCol)
