@@ -186,3 +186,99 @@ TEST(PiezasTest, resetFull)
   p.reset();
 	ASSERT_EQ(p.pieceAt(2, 3), Blank);
 }
+
+TEST(PiezasTest, notDone)
+{
+	Piezas p;
+	ASSERT_EQ(p.gameState(), Invalid);
+}
+
+TEST(PiezasTest, Tie)
+{
+	Piezas p;
+  p.dropPiece(0);
+  p.dropPiece(0);
+  p.dropPiece(1);
+  p.dropPiece(1);
+  p.dropPiece(2);
+  p.dropPiece(2);
+  p.dropPiece(3);
+  p.dropPiece(3);
+  p.dropPiece(0);
+  p.dropPiece(1);
+  p.dropPiece(2);
+  p.dropPiece(3);
+	ASSERT_EQ(p.gameState(), Blank);
+}
+
+TEST(PiezasTest, XRow)
+{
+	Piezas p;
+  p.dropPiece(0);
+  p.dropPiece(0);
+  p.dropPiece(1);
+  p.dropPiece(1);
+  p.dropPiece(2);
+  p.dropPiece(2);
+  p.dropPiece(3);
+  p.dropPiece(0);
+  p.dropPiece(3);
+  p.dropPiece(1);
+  p.dropPiece(2);
+  p.dropPiece(3);
+	ASSERT_EQ(p.gameState(), X);
+}
+
+TEST(PiezasTest, ORow)
+{
+	Piezas p;
+  p.dropPiece(0);
+  p.dropPiece(0);
+  p.dropPiece(1);
+  p.dropPiece(1);
+  p.dropPiece(2);
+  p.dropPiece(2);
+  p.dropPiece(0);
+  p.dropPiece(3);
+  p.dropPiece(1);
+  p.dropPiece(3);
+  p.dropPiece(3);
+  p.dropPiece(2);
+	ASSERT_EQ(p.gameState(), O);
+}
+
+TEST(PiezasTest, XCol)
+{
+	Piezas p;
+  p.dropPiece(0);
+  p.dropPiece(1);
+  p.dropPiece(0);
+  p.dropPiece(2);
+  p.dropPiece(0);
+  p.dropPiece(2);
+  p.dropPiece(1);
+  p.dropPiece(1);
+  p.dropPiece(3);
+  p.dropPiece(3);
+  p.dropPiece(2);
+  p.dropPiece(3);
+	ASSERT_EQ(p.gameState(), X);
+}
+
+TEST(PiezasTest, OCol)
+{
+	Piezas p;
+  p.dropPiece(0);
+  p.dropPiece(1);
+  p.dropPiece(0);
+  p.dropPiece(1);
+  p.dropPiece(2);
+  p.dropPiece(1);
+  p.dropPiece(3);
+  p.dropPiece(0);
+  p.dropPiece(2);
+  p.dropPiece(3);
+  p.dropPiece(3);
+  p.dropPiece(2);
+	ASSERT_EQ(p.gameState(), O);
+}
