@@ -135,3 +135,54 @@ TEST(PiezasTest, getInvBoth)
 	Piezas p;
 	ASSERT_EQ(p.pieceAt(4, 4), Invalid);
 }
+
+TEST(PiezasTest, reset1)
+{
+	Piezas p;
+  p.dropPiece(0);
+  p.reset();
+	ASSERT_EQ(p.pieceAt(0, 0), Blank);
+}
+
+TEST(PiezasTest, reset2)
+{
+	Piezas p;
+  p.dropPiece(1);
+  p.reset();
+	ASSERT_EQ(p.pieceAt(0, 1), Blank);
+}
+
+TEST(PiezasTest, reset3)
+{
+	Piezas p;
+  p.dropPiece(2);
+  p.reset();
+	ASSERT_EQ(p.pieceAt(0, 2), Blank);
+}
+
+TEST(PiezasTest, reset4)
+{
+	Piezas p;
+  p.dropPiece(3);
+  p.reset();
+	ASSERT_EQ(p.pieceAt(0, 3), Blank);
+}
+
+TEST(PiezasTest, resetFull)
+{
+	Piezas p;
+  p.dropPiece(0);
+  p.dropPiece(0);
+  p.dropPiece(0);
+  p.dropPiece(1);
+  p.dropPiece(1);
+  p.dropPiece(1);
+  p.dropPiece(2);
+  p.dropPiece(2);
+  p.dropPiece(2);
+  p.dropPiece(3);
+  p.dropPiece(3);
+  p.dropPiece(3);
+  p.reset();
+	ASSERT_EQ(p.pieceAt(2, 3), Blank);
+}
