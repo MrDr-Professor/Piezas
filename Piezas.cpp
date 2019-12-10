@@ -113,6 +113,7 @@ Piece Piezas::gameState()
         }
     }
     for(int i = 0; i < BOARD_ROWS; i++){
+        cur = 0;
         for(int j = 0; j < BOARD_COLS; j++){
             if(board[i][j] != p){
                 p = board[i][j];
@@ -129,6 +130,7 @@ Piece Piezas::gameState()
     }
     cur = 0;
     for(int i = 0; i < BOARD_COLS; i++){
+        cur = 0;
         for(int j = 0; j < BOARD_ROWS; j++){
             if(board[j][i] != p){
                 p = board[j][i];
